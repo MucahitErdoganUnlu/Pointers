@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+
+struct Province ;
+struct Country {
+    Province* capital;
+    string name;
+};
+
+struct Province {
+    Country* domain;
+     string name;
+};
+
+int main() {
+    Country Turkey;
+    Province Istanbul;
+    Turkey.capital = &Istanbul;
+    Turkey.name = "Turkiye";
+    Istanbul.name = "Istanbul";
+	Istanbul.domain = &Turkey;
+	cout << ((Turkey.capital)->name) << "\n";
+    cout << ((*Istanbul.domain).name);
+	return 0;
+}
